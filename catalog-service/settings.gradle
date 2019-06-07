@@ -1,0 +1,4 @@
+rootProject.name="catalog-service"
+include 'app'
+include 'core'
+include 'contract'

@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':core')
+
+    compile 'io.micronaut:micronaut-http:1.1.2'
+}
