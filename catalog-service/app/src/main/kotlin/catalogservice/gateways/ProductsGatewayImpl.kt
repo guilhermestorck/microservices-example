@@ -14,6 +14,10 @@ class ProductsGatewayImpl : ProductsGateway {
         return listOf(createProduct(term), createProduct(term + "AAAA"))
     }
 
+    override fun getById(id: String): Product? {
+        return createProduct(id)
+    }
+
     private fun createProduct(term: String) = Product(
         id = "id-${term}",
         description = term,

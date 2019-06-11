@@ -7,8 +7,8 @@ object Application {
     @JvmStatic
     fun main(args: Array<String>) {
         Micronaut.build()
-                .packages("catalog.service")
-                .mainClass(Application.javaClass)
-                .start()
+            .packages("catalogservice")
+            .mainClass(Application.javaClass)
+            .start()
     }
 }
