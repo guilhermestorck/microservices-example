@@ -16,6 +16,7 @@ A service can import the contract module of another to more easily implement a c
 
 
 ### To do
+- **100% code coverage**
 - **Containerization**  
 Fine tune the docker file
 - **Service discovery**  
@@ -28,3 +29,5 @@ Add Kubernetes goodies
 Add Gherkin support
 - **Feature toggle support**  
 Integrate with FF4j
+- **Standardize actions**  
+Integrate with Make
