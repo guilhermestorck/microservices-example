@@ -1,6 +1,6 @@
-# Catalog Service
+# POC
 
-Use this service to query our catalog or get the information of a product given an id
+Testing some new techs out
 
 ### Features included
 - **Code with Kotlin**  
