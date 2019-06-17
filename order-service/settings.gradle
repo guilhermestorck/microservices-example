@@ -1,0 +1,4 @@
+rootProject.name = "order-service"
+include 'app'
+include 'core'
+include 'contract'
