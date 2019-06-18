@@ -37,7 +37,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = 'catalogservice.Application'
+mainClassName = 'catalogservice.conf.Application'
 
 allOpen {
     annotation('io.micronaut.aop.Around')

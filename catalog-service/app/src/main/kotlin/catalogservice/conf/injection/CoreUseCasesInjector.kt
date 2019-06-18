@@ -1,4 +1,4 @@
-package catalogservice.injection
+package catalogservice.conf.injection
 
 import catalogservice.core.gateways.ProductsGateway
 import catalogservice.core.usecases.FindProductsByTermUseCase

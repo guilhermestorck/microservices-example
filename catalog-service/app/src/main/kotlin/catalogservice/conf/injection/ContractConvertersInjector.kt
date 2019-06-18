@@ -1,4 +1,4 @@
-package catalogservice.injection
+package catalogservice.conf.injection
 
 import catalogservice.contract.converters.ProductToProductResponseConverter
 import io.micronaut.context.annotation.Factory

@@ -1,4 +1,4 @@
-package catalogservice
+package catalogservice.conf
 
 import io.micronaut.runtime.Micronaut
 
