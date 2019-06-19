@@ -29,6 +29,7 @@ dependencies {
     compile 'io.micronaut:micronaut-http-server-netty'
     compile "io.micronaut:micronaut-tracing"
     compile "io.jaegertracing:jaeger-thrift"
+    runtime "io.micronaut:micronaut-discovery-client"
     kapt 'io.micronaut:micronaut-inject-java'
     kapt 'io.micronaut:micronaut-validation'
     kaptTest 'io.micronaut:micronaut-inject-java'
@@ -47,6 +48,7 @@ allOpen {
 
 shadowJar {
     mergeServiceFiles()
+    archiveName = "${baseName}.${extension}"
 }
 
 run.classpath += configurations.developmentOnly
