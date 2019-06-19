@@ -1,3 +1,9 @@
 micronaut:
   application:
     name: catalog-service
+
+tracing:
+  jaeger:
+    enabled: true
+    sampler:
+      probability: 1
