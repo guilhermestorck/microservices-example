@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: catalog-service
+  config-client:
+    enabled: true
 
 tracing:
   jaeger:

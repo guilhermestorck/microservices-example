@@ -1,0 +1,24 @@
+version: "2"
+services:
+
+  consul:
+    extends:
+      service: consul
+      file: docker-compose.base.yml
+
+  app:
+    build: ../../
+    networks:
+      - consul-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - consul
+    environment:
+      - CONSUL_HOST=consul
+      - CONSULT_PORT=8500
+
+networks:
+
+  consul-network:
+    driver: bridge
