@@ -1,9 +1,9 @@
 buildscript {
-    apply from: "/home/gstorck/workspace/micronaut/market/buildscript.common.gradle", to: buildscript
+    apply from: file("../gradle-common/buildscript.common.gradle"), to: buildscript
 }
 
 subprojects {
-    apply from: "/home/gstorck/workspace/micronaut/market/project.common.gradle"
-    version "0.1"
-    group "order-service"
+    apply from: file("../../gradle-common/project.common.gradle")
+    version '0.1'
+    group 'order-service'
 }
