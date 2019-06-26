@@ -52,7 +52,6 @@ Each microservice has 3 modules: app, contract and core
 - JaCoCo: Code coverage
 - Gradle: Build automation system
 - Cucumber: Component tests
--
 
 ## Feedback
 
@@ -60,7 +59,7 @@ There's a [spreadsheet](https://docs.google.com/spreadsheets/d/1J5mbBrx1C_ZiXRZ0
 
 ## TODO
 
-- ~Externalize the gradle configuration parts that are common among microservices~
+- ~~Externalize the gradle configuration parts that are common among microservices~~
 - Implement component tests on order-service
 - Separate HTTP Logger in a separate lib
 - Add FF4J
