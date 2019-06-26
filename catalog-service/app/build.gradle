@@ -35,6 +35,10 @@ dependencies {
     kaptTest 'io.micronaut:micronaut-inject-java'
     runtime 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8'
     runtime 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'net.logstash.logback:logstash-logback-encoder:6.1'
+    runtime 'io.zipkin.brave:brave-instrumentation-http'
+    runtime 'io.zipkin.reporter2:zipkin-reporter'
+    compile 'io.opentracing.brave:brave-opentracing'
     testAnnotationProcessor 'io.micronaut:micronaut-inject-java'
 }
 

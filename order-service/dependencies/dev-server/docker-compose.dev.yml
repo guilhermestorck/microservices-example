@@ -1,0 +1,69 @@
+version: "2"
+
+services:
+
+  consul:
+    image: consul
+    networks:
+      - consul-network
+    ports:
+      - "8500:8500"
+
+  mocks:
+    build: ../mocks
+    networks:
+      consul-network:
+        ipv4_address: 192.168.0.10
+    depends_on:
+      - consul
+    ports:
+      - "8081:8081"
+      - "8905:8905"
+    environment:
+      - HOST_IP=192.168.0.10
+      - ENV=dev
+
+  zipkin:
+    image: openzipkin/zipkin
+    networks:
+      - consul-network
+    ports:
+      - "9411:9411"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.1.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+    networks:
+      - consul-network
+
+  logstash:
+    build: ../elk/logstash
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+    networks:
+      - consul-network
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.1.1
+    ports:
+      - "5601:5601"
+    networks:
+      - consul-network
+    depends_on:
+      - elasticsearch
+
+networks:
+
+  consul-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: "192.168.0.1"

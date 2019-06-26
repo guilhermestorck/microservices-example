@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+
+  consul:
+    image: consul
+    networks:
+      - consul-network
+    ports:
+      - "8500:8500"
+
+networks:
+
+  consul-network:
+    driver: bridge

@@ -1,6 +1,6 @@
 package orderservice.core.gateways
 
-import orderservice.core.exceptions.CatalogIntegrationException
+import orderservice.core.domains.exceptions.CatalogIntegrationException
 
 interface CatalogGateway {
 

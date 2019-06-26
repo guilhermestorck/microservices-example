@@ -1,7 +1,7 @@
 package orderservice.gateways
 
 import orderservice.clients.CatalogClient
-import orderservice.core.exceptions.CatalogIntegrationException
+import orderservice.core.domains.exceptions.CatalogIntegrationException
 import orderservice.core.gateways.CatalogGateway
 import javax.inject.Singleton
 

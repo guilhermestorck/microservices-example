@@ -3,9 +3,13 @@ micronaut:
     name: catalog-service
   config-client:
     enabled: true
+  server:
+    port: 8082
 
 tracing:
-  jaeger:
+  zipkin:
+    http:
+      url: "http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}"
     enabled: true
     sampler:
       probability: 1

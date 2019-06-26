@@ -10,9 +10,9 @@ clean :
 run-dev :
 	gradle run
 
-.PHONY: run-dependencies
-run-dev-dependencies :
-	docker-compose -f dependencies/dev-server/docker-compose.base.yml up -d --build --force-recreate
+.PHONY: dev-dependencies
+dev-dependencies :
+	docker-compose -f dependencies/dev-server/docker-compose.dev.yml up -d --build --force-recreate
 
 .PHONY: run
 run : app/build/libs/app.jar dependencies/dev-server
