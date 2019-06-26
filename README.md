@@ -61,7 +61,6 @@ There's a [spreadsheet](https://docs.google.com/spreadsheets/d/1J5mbBrx1C_ZiXRZ0
 
 - ~~Externalize the gradle configuration parts that are common among microservices~~
 - Implement component tests on order-service
-- Separate HTTP Logger in a separate lib
 - Add FF4J
 - Integrate a Postgres database with catalog-service
 - Deploy all microservices with k8s
