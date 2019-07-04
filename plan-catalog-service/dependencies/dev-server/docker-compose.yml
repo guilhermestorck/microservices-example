@@ -1,0 +1,40 @@
+version: "2"
+services:
+
+  consul:
+    image: consul
+    networks:
+      - consul-network
+    ports:
+      - "8500:8500"
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/gstorck/workspace/data/postgresql:/var/lib/postgresql/data
+    networks:
+      - consul-network
+
+  app:
+    build: ../../
+    networks:
+      - consul-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - consul
+      - postgres
+    environment:
+      - CONSUL_HOST=consul
+      - CONSULT_PORT=8500
+      - JDBC_URL=jdbc:postgresql://postgres:5432/plancatalogdb
+      - JDBC_USER=postgres
+      - JDBC_PASSWORD=root
+      - JDBC_DRIVER=org.postgresql.Driver
+
+networks:
+
+  consul-network:
+    driver: bridge

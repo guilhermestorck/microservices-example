@@ -1,0 +1,63 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: gstorck
+      changes:
+        - createTable:
+            tableName: INSURANCE_COVERAGE_ITEMS
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(100)
+              - column:
+                  name: DESCRIPTION
+                  type: VARCHAR(200)
+        - createTable:
+            tableName: INSURANCE_PLANS
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(100)
+              - column:
+                  name: COST_RATE
+                  type: DOUBLE
+        - createTable:
+            tableName: INSURANCE_PLANS_INSURANCE_COVERAGE_ITEMS
+            columns:
+              - column:
+                  name: INSURANCE_PLAN_ID
+                  type: VARCHAR(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: INSURANCE_COVERAGE_ITEM_ID
+                  type: VARCHAR(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: INSURANCE_PLAN_ID
+            baseTableName: INSURANCE_PLANS_INSURANCE_COVERAGE_ITEMS
+            constraintName: FK_INSURANCE_PLAN
+            referencedColumnNames: ID
+            referencedTableName: INSURANCE_PLANS
+        - addForeignKeyConstraint:
+            baseColumnNames: INSURANCE_COVERAGE_ITEM_ID
+            baseTableName: INSURANCE_PLANS_INSURANCE_COVERAGE_ITEMS
+            constraintName: FK_INSURANCE_COVERAGE_ITEM
+            referencedColumnNames: ID
+            referencedTableName: INSURANCE_COVERAGE_ITEMS

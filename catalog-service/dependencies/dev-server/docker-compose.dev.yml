@@ -9,6 +9,29 @@ services:
     ports:
       - "8500:8500"
 
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "root"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/gstorck/workspace/data/postgresql:/var/lib/postgresql/data
+    networks:
+      - consul-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@root.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - consul-network
+
 networks:
 
   consul-network:

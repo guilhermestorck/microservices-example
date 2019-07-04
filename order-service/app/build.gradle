@@ -40,6 +40,9 @@ dependencies {
     runtime 'io.zipkin.reporter2:zipkin-reporter'
     compile 'io.opentracing.brave:brave-opentracing'
     testAnnotationProcessor 'io.micronaut:micronaut-inject-java'
+    compile 'io.micronaut.configuration:micronaut-hibernate-gorm'
+    runtime "io.micronaut.configuration:micronaut-jdbc-hikari"
+    runtime 'com.h2database:h2'
 }
 
 test.classpath += configurations.developmentOnly

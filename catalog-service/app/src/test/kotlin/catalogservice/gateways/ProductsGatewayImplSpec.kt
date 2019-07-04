@@ -1,4 +1,8 @@
+import catalogservice.db.domains.ProductEntity
+import catalogservice.db.repositories.ProductRepository
 import catalogservice.gateways.ProductsGatewayImpl
+import io.mockk.every
+import io.mockk.mockk
 import org.hamcrest.CoreMatchers.notNullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
@@ -8,7 +12,8 @@ import org.spekframework.spek2.style.specification.describe
 
 object ProductsGatewayImplSpec : Spek({
 
-    val gateway by memoized { ProductsGatewayImpl() }
+    val productRepository by memoized { mockk<ProductRepository>() }
+    val gateway by memoized { ProductsGatewayImpl(productRepository) }
 
     describe("#findByTerm") {
 
@@ -27,10 +32,19 @@ object ProductsGatewayImplSpec : Spek({
 
     describe("#getById") {
         it("should get a product by id") {
+            val productEntity = ProductEntity(
+                id = "the-id",
+                description = "the-id",
+                price = 3.0
+            )
+
+            every { productRepository.getById("the-id") } returns productEntity
+
+
             val result = gateway.getById("the-id")
 
             assertThat(result, notNullValue())
-            assertThat(result?.id, equalTo("id-the-id"))
+            assertThat(result?.id, equalTo("the-id"))
             assertThat(result?.description, equalTo("the-id"))
             assertThat(result?.price, equalTo(3.0))
         }

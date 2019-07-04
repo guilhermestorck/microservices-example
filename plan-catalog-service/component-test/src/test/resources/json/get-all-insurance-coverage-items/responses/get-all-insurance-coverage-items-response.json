@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "id-quake",
+      "name": "quake",
+      "description": "Protecao contra terremotos e maremotos"
+    },
+    {
+      "id": "id-zombie",
+      "name": "zombie",
+      "description": "Protecao contra apocalipse zumbi"
+    }
+  ]
+}

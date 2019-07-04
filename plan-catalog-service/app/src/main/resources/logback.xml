@@ -1,0 +1,66 @@
+<configuration>
+
+    <property name="APP_NAME" value="plan-catalog-service"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <if condition='isDefined("LOGSTASH_HOST")'>
+        <then>
+            <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+                <destination>${LOGSTASH_HOST}:${LOGSTASH_PORT}</destination>
+                <reconnectionDelay>2 seconds</reconnectionDelay>
+                <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                    <providers>
+                        <mdc/>
+                        <loggerName/>
+                        <threadName/>
+                        <message/>
+                        <arguments/>
+                        <version/>
+                        <stackTrace/>
+                        <pattern>
+                            <pattern>
+                                {
+                                "logLevel": "%level",
+                                "facility": "GELF",
+                                "source": "${HOSTNAME}",
+                                "app_env": "${APP_ENV}",
+                                "application_name": "${APP_NAME}",
+                                "trace": "%X{X-B3-TraceId:-}",
+                                "span": "%X{X-B3-SpanId:-}",
+                                "parent": "%X{X-B3-ParentSpanId:-}"
+                                }
+                            </pattern>
+                        </pattern>
+                    </providers>
+                </encoder>
+            </appender>
+        </then>
+    </if>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <if condition='isDefined("LOGSTASH_HOST")'>
+            <then>
+                <appender-ref ref="LOGSTASH"/>
+            </then>
+        </if>
+    </root>
+
+    <logger name="com.ranefare.plancatalogservice.conf.log" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <if condition='isDefined("LOGSTASH_HOST")'>
+            <then>
+                <appender-ref ref="LOGSTASH"/>
+            </then>
+        </if>
+    </logger>
+</configuration>

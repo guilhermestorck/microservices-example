@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+
+  consul:
+    image: consul
+    networks:
+      - consul-network
+    ports:
+      - "8500:8500"
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/gstorck/workspace/data/postgresql:/var/lib/postgresql/data
+    networks:
+      - consul-network
+
+networks:
+
+  consul-network:
+    driver: bridge

@@ -1,0 +1,17 @@
+{
+  "id": "id-simple",
+  "name": "Plano Simples",
+  "costRate": 0.05,
+  "coverageItems": [
+    {
+      "id": "id-zombie",
+      "name": "zombie",
+      "description": "Protecao contra apocalipse zumbi"
+    },
+    {
+      "id": "id-quake",
+      "name": "quake",
+      "description": "Protecao contra terremotos e maremotos"
+    }
+  ]
+}

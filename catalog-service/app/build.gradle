@@ -30,6 +30,9 @@ dependencies {
     compile "io.micronaut:micronaut-tracing"
     compile "io.jaegertracing:jaeger-thrift"
     runtime "io.micronaut:micronaut-discovery-client"
+    compile "io.micronaut.configuration:micronaut-hibernate-jpa"
+    compile "io.micronaut.configuration:micronaut-jdbc-hikari"
+    runtime "com.h2database:h2"
     kapt 'io.micronaut:micronaut-inject-java'
     kapt 'io.micronaut:micronaut-validation'
     kaptTest 'io.micronaut:micronaut-inject-java'

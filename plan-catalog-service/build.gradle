@@ -1,0 +1,9 @@
+buildscript {
+    apply from: file("../gradle-common/buildscript.common.gradle"), to: buildscript
+}
+
+subprojects {
+    apply from: file("../../gradle-common/project.common.gradle")
+    version '0.1'
+    group 'plan-catalog-service'
+}

@@ -1,0 +1,8 @@
+rootProject.name="plan-catalog-service"
+include 'app'
+include 'core'
+include 'contract'
+
+project(":app").name = 'plan-catalog-service-app'
+project(":core").name = 'plan-catalog-service-core'
+project(":contract").name = 'plan-catalog-service-contract'
