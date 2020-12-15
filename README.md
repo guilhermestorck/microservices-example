@@ -59,16 +59,16 @@ There's a [spreadsheet](https://docs.google.com/spreadsheets/d/1J5mbBrx1C_ZiXRZ0
 
 ## TODO
 
-[x] Externalize the gradle configuration parts that are common among microservices
-[] Implement component tests on order-service
-[] Add FF4J
-[] Integrate a Postgres database with catalog-service
-[] Deploy all microservices with k8s
-[] Add border service
-[] Add shared configuration (through Spring Cloud Config)
-[] Add Authentication/JWT
-[] Add monitoring with Prometheus/newRelic/Dynatrace
-[] Integrate RabbitMQ with order-service
-[] Create an example that demonstrates the retry and fallback capabilities of Micronaut
-[] Create an example of a reactive type controller using Micronaut + netty
-[] Improve code quality with Sonar
+- [x] Externalize the gradle configuration parts that are common among microservices
+- [ ] Implement component tests on order-service
+- [ ] Add FF4J
+- [ ] Integrate a Postgres database with catalog-service
+- [ ] Deploy all microservices with k8s
+- [ ] Add border service
+- [ ] Add shared configuration (through Spring Cloud Config)
+- [ ] Add Authentication/JWT
+- [ ] Add monitoring with Prometheus/newRelic/Dynatrace
+- [ ] Integrate RabbitMQ with order-service
+- [ ] Create an example that demonstrates the retry and fallback capabilities of Micronaut
+- [ ] Create an example of a reactive type controller using Micronaut + netty
+- [ ] Improve code quality with Sonar
